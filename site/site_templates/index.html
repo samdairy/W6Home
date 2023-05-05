@@ -1,0 +1,168 @@
+<!-- Tell Flask that we want to extend base.html so that we can use it -->
+<!-- The extends 'base.html' statement gives index.html the navbar we created in base.html (and styled in main.css) -->
+{% extends 'base.html' %}
+
+
+{% block content %}
+<!-- Flask Flashed Message to User -->
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for cat,msg in messages %}
+                {% if cat == 'user-created' %}
+                    <div class="alert alert-success">
+                        {{ msg }}
+                        <button type="button" class='btn-close' data-bs-dismiss = 'alert' aria-label="Close">&times;</button>
+                    </div> 
+                    
+                {% elif cat == 'auth-success' %}
+                    <div class="alert alert-success">
+                        {{ msg }}
+                        <button type="button" class='btn-close' data-bs-dismiss = 'alert' aria-label="Close">&times;</button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+<div class="container">
+    <!-- Header Section -->
+    <header class="row">
+        <div class="col-12 col-md-6" id="header-text">
+            <h2>Let Rangers 114 help with your car inventory management!</h2>
+            <h5>Create an easy to use tool for your team to manage your car inventory!</h5>
+            <div>
+                <a href="{{ url_for('site.blog') }}"><button class="btn btn-primary">Visit Our Blog</button></a>
+                <a href="#" class="button-links"><button class="btn btn-primary">Contact Rangers 59</a></button>
+            </div>
+        </div>
+        
+        <!-- Header Image -->
+        <div class="col-12 col-md-6">
+            <img src="../../static/images/undraw_order_a_car_3tww.svg" alt="Order a Car Image" class="header-image">
+        </div>
+
+    </header>
+
+    <!-- Start of Middle Section -->
+    <section class="row">
+        <div class="col-12" id="middle-text">
+            <h2>Display Your Inventory!</h2>
+            <p>You can harness the power of our API to expand your brand!</p>
+        </div>
+    </section>
+
+    <!-- Collection of Features -->
+    <section class="row" id="features-section">
+        <div class="col-12 col-md-4 mid-page">
+            <img src="../../static/images/api.png" alt="API Image" id="api-image">
+        </div>
+
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/graphql.png" alt="GraphQL-image" id="graphpq-image">
+        </div>
+
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/db.png" alt="database-image" id="database-image">
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <h4>Dedicated API Routes</h4>
+                <p>If you are a fan of using traditional API routes, we got it!</p>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <h4>GraphQL API Route</h4>
+                <p>If you want ALL data from one endpoint, we have that, too!</p>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <h4>Backed By a PostreSQL Database</h4>
+                <p>All data will be persisted in a PostgreSQL Database!</p>
+            </div>
+        </div>
+    </section>
+
+    <sesction class="row">
+        <div class="col-12 col-md-6">
+            <img src="../../static/images/undraw_fast_car_p4cu.svg" alt="Person on Car" id="Car-image">
+        </div>
+        
+        <div class="col-12 col-md-6">
+            <h4>Talk with other automobile business owners</h4>
+            <p>Get cars to your customers faster!</p>
+            <p>Customize an API for your business today!</p>
+
+            <div>
+                <button class="btn btn-primary">View on Github</button>
+                <button class="btn btn-primary">Join Our Slack Channel!</button>
+            </div>
+        </div>
+    </sesction>
+
+    <!-- Start of Footer Section -->
+    <footer class="row" id="footer">
+        <div class="col-2 col-md-2">
+            <img src="../../static/images/circle_logo.png" alt="Rangers 114 Logo" id="footer-logo">
+        </div>
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Platform</h4>
+                <p>Why Rangers 59?</p>
+                <p>The Rangers 59 Car Inventory Project</p>
+                <p>Pricing</p>
+                <p>Our Process</p>
+                <p>Additional Information</p>
+            </div>
+        </div>
+
+
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Features</h4>
+                <p>Design</p>
+                <p>Integrations</p>
+                <p>Collaboration</p>
+            </div>
+        </div>
+
+
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Support</h4>
+                <p>FAQ</p>
+                <p>Help Center</p>
+                <p>Privacy</p>
+                <p>Contact Support Team</p>
+            </div>
+        </div>
+
+
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Company</h4>
+                <p><a href="{{ url_for('site.blog') }}" class="social">Blog</a></p>
+                <p>About Rangers 114</p>
+                <p>Contact Rangers 114</p>
+                <p>Customer Support</p>
+            </div>
+        </div>
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Follow Us!</h4>
+                <p><a href = "https://twitter.com/" target="_blank" class="social">Twitter</a></p>
+                <p><a href = "https://www.linkedin.com/" target="_blank" class="social">LinkedIn</a></p>
+                <p><a href = "https://www.facebook.com/" target="_blank" class="social">Facebook</a></p>
+                <p>Github</p>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End of Footer -->
+
+</div>
+
+{% endblock content %}
+
+

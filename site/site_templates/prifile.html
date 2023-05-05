@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <header classs="hero-section">
+        <h3 class="header-text">Welcome to Rangers 114!</h3>
+    </header>
+
+    <!-- Profile Info section -->
+    <div class="container">
+        <h3>Here are your profile details: {{ current_user.email }}</h3>
+
+        <ul class="list-group">
+            <!-- current_user comes from flask login_manager (see models.py)-->
+            <!-- the load_user method returns an instance of the user -->
+            <li class="list-group-item">Email: {{ current_user.email }}</li>
+            <li class="list-group-item">Token: {{ current_user.token }}</li>
+        </ul>
+    </div>
+
+{% endblock content %}
