@@ -4,7 +4,7 @@ from flask import Flask
 from config import Config
 
 # Import the 'site' blueprint that we created in routes.py
-from .site.routes import site
+from .site.routes import site;
 
 from .authentication.routes import auth
 from .api.routes import api
@@ -38,4 +38,4 @@ CORS(app)
 
 app.json_encoder = JSONEncoder
 
-from car_inventory import models
+from.car_inventory import models

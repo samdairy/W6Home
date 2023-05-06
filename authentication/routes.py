@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from car_inventory.forms import UserLoginForm
-from car_inventory.mo import User, db, check_password_hash
+from car_inventory.models import User, db, check_password_hash
 
 # Imports for flask login
 from flask_login import login_user, logout_user, login_required
